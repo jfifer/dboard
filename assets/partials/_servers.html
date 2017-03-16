@@ -1,0 +1,30 @@
+<div class="panel panel-default" style="float: left; width: 50%; margin: 5px;">
+   <div class="panel-heading">
+     Servers
+   </div>
+   <div class="panel-body" style="height:300px;overflow-y:scroll;">
+     <div class="notice" ng-if="servers.length===0">Please select a server group</div>
+     <table style="width:100%;" ng-if="servers.length > 0">
+       <thead>
+           <th>Hostname</th>
+           <th>Platform</th>
+           <th>Status</th>
+           <th>Zenoss</th>
+           <th>iTop</th>
+           <th>Spacewalk</th>
+       </thead>
+       <tbody>
+         <tr class="clickable" ng-repeat="server in servers" ng-click="getDetails(server.zenoss[0].url)">
+           <td>{{server.hostname}}</td>
+           <td>{{server.name}}</td>
+           <td>{{server.serverStatus}}</td>
+           <td><div class="status-icon {{status_icon[server.zenoss.length]}}"></div></td>
+           <td></td>
+           <td></td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+   <div class="panel-footer">
+   </div>
+</div>

@@ -1,0 +1,36 @@
+<div ng-init="init()">
+  <form ng-submit="login(auth)" ng-controller="authController" class="panel panel-default login" name="loginForm" ng-if="!loggedIn">
+    <div class="panel-heading">
+      Login
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <input type="email" required ng-model="auth.username" placeholder="Username" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input required ng-model="auth.password" type="password" placeholder="Password" class="form-control" />
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button type=submit>Login</button>
+    </div>
+  </form>
+
+  <div id="home" ng-if="loggedIn" style="width: 100%; margin: 0 auto;">
+    <div id="header" style="width:100%; height: 75px; margin:0;">
+      <div id="userstuff" style="float:right;">
+        {{username}} <i class="fa fa-rebel" ng-click="logout()"></i>
+      </div>
+    </div>
+    <div class="row">
+      <ng-include src="'assets/partials/_zen_events.html'"></ng-include>
+      <ng-include src="'assets/partials/_server_groups.html'"></ng-include>
+      <ng-include src="'assets/partials/_servers.html'"></ng-include>
+    </div>
+    <div class="row">
+      <ng-include src="'assets/partials/_zen_detail.html'"></ng-include>
+      <ng-include src="'assets/partials/_itop_detail.html'"></ng-include>
+      <ng-include src="'assets/partials/_sw_detail.html'"></ng-include>
+    </div>
+  </div>
+</div>

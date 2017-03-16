@@ -1,0 +1,19 @@
+<div class="panel panel-default" style="float: left; width: 20%; margin: 5px;">
+   <div class="panel-heading">
+     Zenoss Events
+   </div>
+   <div class="panel-body" style="height:300px;overflow-y:scroll;">
+     <table style="width:100%;">
+        <tr ng-repeat="event in events">
+          <td class="popup-parent">
+            <div class="status-icon {{severity[event.severity]}}">
+              <div class="popup">{{event.summary}}</div>
+            </div>
+          </td>
+          <td>{{event.device.text}}</td>
+        </tr>
+     </table>
+   </div>
+   <div class="panel-footer">
+   </div>
+</div>
